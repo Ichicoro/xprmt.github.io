@@ -1,9 +1,18 @@
-Welcome, from the /wg/ sticky. To add a function to the terminal, write it in bin.js because term.js is where all the terminal-handling code and the most basic functions are. It's also pretty gross.
+Welcome, from the /wg/ sticky. Or just startpages.github.io.
 
-If you do add a function, you also have to put its name in the hookCommands list, which is also in bin.js.
+To add your own function to the terminal, put it in `bin.js`. Specifically, put its name in terminalFunctions, and then make your definition follow the form of the rest of the functions. 
 
-Why put them in the list, you ask? Autocompletion and function calling from a string without using `eval()`. I could have made each function its own object with a name and everything, but the original version of this terminal was made in a day for a coding challenge, and I haven't gotten around to fixing it yet.
+To define your own bookmarks, `edit .bookmarks`. A sample file would look like:
+```
+google https://www.google.com/
+el_feis https://www.facebook.com/
+```
 
-###muh scalability
-**If you can, please get your own OpenWeatherMap API key and put it in `weather()`.**
-The free OpenWeatherMap plan is limited to 60 API calls per minute for each key. This page won't send a new request if the current cached weather data is less than 20 minutes old, but if more people start using this startpage eventually the number of requests will become a problem.
+You can also define your own high-level color scheme in `.config`, as well as edit your `userName` and `userMachine`. Run `terminal` in your browser's dev console to see the properties you can override.
+
+If you want to be a real nerd, put some ASCII art in `.art` and it will be displayed with `screenfetch` instead of the default.
+
+**weather** probably won't work unless you:
+* have an OpenWeatherMap API key (they're free and easy to get)
+* have location services enabled
+* are running the page locally, because OpenWeatherMap uses http while GitHub uses https, and the two go together like things that don't go well together
